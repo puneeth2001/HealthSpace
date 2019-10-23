@@ -25,7 +25,7 @@ public class MedicalCollege extends JFrame implements ActionListener{
         l2.setBounds(0,100, 120,50);
         JTextField locality = new JTextField();
         locality.setBounds(120,100,120,50);
-         b = new JButton("Sign Up");
+        b = new JButton("Sign Up");
         b.setBounds(160,300,100,30);
         j.add(username);  j.add(b);j.add(locality);j.add(l1);j.add(l2);
         b.addActionListener(this);
@@ -37,7 +37,7 @@ public class MedicalCollege extends JFrame implements ActionListener{
     	j = new JFrame("College");
         JLabel l1=new JLabel("Username");  
         l1.setBounds(0,50, 120,50);  
-        JTextField username = new JTextField("enter username");
+        JTextField username = new JTextField();
         username.setBounds(120,50,120,50);
         JLabel l2=new JLabel("Password");  
         l2.setBounds(0,100, 120,50); 

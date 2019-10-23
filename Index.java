@@ -33,7 +33,7 @@ public class Index extends JFrame implements ActionListener {
          b = new JButton("Sign Up");
         b.setBounds(100,300,100,30);
         b2 = new JButton("Sign In");
-        b2.setBounds(240,300,100,30);
+        b2.setBounds(275,425,100,30);
         j.add(username);  j.add(b);j.add(password); j.add(confirmpassword);j.add(l1);j.add(l2);j.add(l3);j.add(r1);j.add(r2);
         j.add(l4); j.add(b2);
         b.addActionListener(this);
