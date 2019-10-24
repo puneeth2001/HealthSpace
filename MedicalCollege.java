@@ -1,6 +1,10 @@
+package oops_project;
+
+import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -9,6 +13,7 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.ListSelectionModel;
+import javax.swing.border.Border;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 
@@ -16,38 +21,67 @@ public class MedicalCollege extends JFrame implements ActionListener{
     JFrame j,f; JButton b,b3;
     public void signup(){
          j = new JFrame("Hello College");
-
+        
         JLabel l1=new JLabel("Name");  
-        l1.setBounds(0,50, 120,50);  
+        
         JTextField username = new JTextField("Enter Name");
-        username.setBounds(120,50,120,50);
+       
         JLabel l2=new JLabel("Locality");  
-        l2.setBounds(0,100, 120,50);
+        
         JTextField locality = new JTextField();
-        locality.setBounds(120,100,120,50);
+       
         b = new JButton("Sign Up");
+       
+        
+        Border border = BorderFactory.createLineBorder(Color.BLACK, 2);
+        l1.setBounds(10,50, 120,50);  
+        l1.setForeground(Color.black);
+        username.setBounds(120,60,120,30);
+        username.setBorder(border );
+        l2.setBounds(10,100, 120,50);
+        l2.setForeground(Color.black);
+        locality.setBounds(120,110,120,30);
+        locality.setBorder(border );
         b.setBounds(160,300,100,30);
+        b.setBackground(Color.YELLOW);
+        b.setBorder(border );
         j.add(username);  j.add(b);j.add(locality);j.add(l1);j.add(l2);
         b.addActionListener(this);
+        j.getContentPane().setBackground(Color.LIGHT_GRAY);
         j.setSize(400,500);
         j.setLayout(null);
         j.setVisible(true);
     }
     public void signin() {
+    	
     	j = new JFrame("College");
         JLabel l1=new JLabel("Username");  
-        l1.setBounds(0,50, 120,50);  
+        
         JTextField username = new JTextField();
-        username.setBounds(120,50,120,50);
+       
         JLabel l2=new JLabel("Password");  
-        l2.setBounds(0,100, 120,50); 
+       
         JPasswordField password = new JPasswordField();
-        password.setBounds(120,100,120,50);
+        
          b = new JButton("Sign In");
+       
+        
+        Border border = BorderFactory.createLineBorder(Color.BLACK, 2);
+        l1.setBounds(10,50, 120,50);  
+        l1.setForeground(Color.black);
+        username.setBounds(120,60,120,30);
+        username.setBorder(border );
+        l2.setBounds(10,100, 120,50);
+        l2.setForeground(Color.black);
+        password.setBounds(120,110,120,30);
+        password.setBorder(border );
         b.addActionListener(this);
-        b.setBounds(210,300,100,30);
+        b.setBorder(border );
+        b.setBackground(Color.YELLOW);
+        b.setBounds(120,300,100,30);
         j.add(username);  j.add(b);j.add(password);j.add(l1);j.add(l2);
         j.setSize(400,500);
+        j.getContentPane().setBackground(Color.LIGHT_GRAY);
         j.setLayout(null);
         j.setVisible(true);
     }
@@ -80,12 +114,19 @@ public class MedicalCollege extends JFrame implements ActionListener{
     	
     }
     public void details() {
+    	
     	j = new JFrame("College");
        JLabel l1=new JLabel("Username"); 
        b3 = new JButton("Select Village");
+       
+       
+       Border border = BorderFactory.createLineBorder(Color.BLACK, 2);
        b3.setBounds(50,300,200,30);
+       b3.setBorder(border );
        j.add(b3); j.add(l1);
        b3.addActionListener(this);
+       b3.setBackground(Color.YELLOW);
+       j.getContentPane().setBackground(Color.LIGHT_GRAY);
        j.setSize(400,500);
        j.setLayout(null);
        j.setVisible(true);

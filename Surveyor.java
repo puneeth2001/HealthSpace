@@ -1,71 +1,124 @@
+package oops_project;
+
+import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.FileWriter;
 
+import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
+import javax.swing.border.Border;
 
 public class Surveyor implements ActionListener {
     JFrame j; JButton b,b2,b3;
     JTextField username,email,phoneno;
     public void signup(){
+    	
         j = new JFrame("Hello Surveyor");
         JLabel l1=new JLabel("Name");  
-        l1.setBounds(0,50, 120,50);  
+      
         username = new JTextField("Enter Name");
-        username.setBounds(120,50,120,50);
+   
         JLabel l2=new JLabel("Email");  
-        l2.setBounds(0,100, 120,50); 
+       
         email = new JTextField();
-        email.setBounds(120,100,120,50);
-        JLabel l3=new JLabel("phoneno");  
+      
+        JLabel l3=new JLabel("phone no"); 
+        
         phoneno = new JTextField();
-        phoneno.setBounds(120, 150, 120, 50);
-        l3.setBounds(0,150, 120,50); 
+       
+        l3.setBounds(10,150, 120,50); 
         b = new JButton("Sign Up");
-        b.setBounds(160,300,100,30);
+       
+        
+        Border border = BorderFactory.createLineBorder(Color.BLACK, 2);
+        l1.setBounds(10,50, 120,50);  
+        l1.setForeground(Color.black);
+        username.setBounds(80,60,120,30);
+        username.setBorder(border );
+        l2.setBounds(10,100, 120,50);
+        l2.setForeground(Color.black);
+        email.setBounds(80,110,120,30);
+        email.setBorder(border );
+        l3.setForeground(Color.black);
+        phoneno.setBounds(80, 160, 120, 30);
+        phoneno.setBorder(border );
+        b.setBounds(80,300,100,30);
+        b.setBorder(border );
+        b.setBackground(Color.YELLOW);
         j.add(username);  j.add(b);j.add(email);j.add(l1);j.add(l2);j.add(l3);j.add(phoneno);
         b.addActionListener(this);
         j.setSize(400,500);
+        j.getContentPane().setBackground(Color.LIGHT_GRAY);
         j.setLayout(null);
         j.setVisible(true);
     }
     public void signin() {
+    	
     	j = new JFrame("Sign In");
         JLabel l1=new JLabel("Username");  
-        l1.setBounds(0,50, 120,50);  
+       
         username = new JTextField("enter username");
-        username.setBounds(120,50,120,50);
+       
         JLabel l2=new JLabel("Password");  
-        l2.setBounds(0,100, 120,50); 
+       
         JPasswordField password = new JPasswordField();
-        password.setBounds(120,100,120,50);
+      
         b = new JButton("Sign In");
+      
+        
+        Border border = BorderFactory.createLineBorder(Color.BLACK, 2);
+        l1.setForeground(Color.black);
+        l1.setBounds(10,50, 120,50);  
+        username.setBounds(120,60,120,30);
+        username.setBorder(border );
+        l2.setBounds(10,100, 120,50); 
+        l2.setForeground(Color.black);
+        password.setBounds(120,110,120,30);
+        password.setBorder(border );
+        b.setBackground(Color.YELLOW);
         b.addActionListener(this);
         b.setBounds(210,300,100,30);
+        b.setBorder(border );
         j.add(username);  j.add(b);j.add(password);j.add(l1);j.add(l2);
         j.setSize(400,500);
+        j.getContentPane().setBackground(Color.LIGHT_GRAY);
         j.setLayout(null);
         j.setVisible(true);
     }
     public void survey() {
         j = new JFrame("Area");
-       JLabel l1=new JLabel("Name");  
-       l1.setBounds(0,50, 120,50);  
+            JLabel l1=new JLabel("Name");  
+     
        JTextField username = new JTextField();
-       username.setBounds(120,50,120,50);
-       JLabel l2=new JLabel("Pin-Code");  
-       l2.setBounds(0,100, 120,50); 
+      
+       JLabel l2=new JLabel("Pin-Code");
+     
        JTextField PinCode = new JTextField();
-       PinCode.setBounds(120,100,120,50); 
+       
        b2 = new JButton("Add Patient");
+      
+       
+       Border border = BorderFactory.createLineBorder(Color.BLACK, 2);
+       l1.setBounds(10,50, 120,30);  
+       l1.setForeground(Color.black);
+       username.setBounds(120,50,120,30);
+       username.setBorder(border );
+       l2.setBounds(10,100, 120,30);
+       l2.setForeground(Color.black);
+       PinCode.setBounds(120,100,120,30); 
+       PinCode.setBorder(border );
        b2.setBounds(120,300,300,30);
+       b2.setBorder(border );
+       b2.setBackground(Color.YELLOW);
        j.add(username);  j.add(b2);j.add(PinCode);j.add(l1);j.add(l2);
        b2.addActionListener(this);
+       j.getContentPane().setBackground(Color.LIGHT_GRAY);
        j.setSize(500,500);
        j.setLayout(null);
        j.setVisible(true);
