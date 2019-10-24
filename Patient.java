@@ -55,15 +55,17 @@ public class Patient extends JFrame implements ActionListener{
 		try {
 			FileWriter fw = new FileWriter("Patient/"+userkanam+".txt");
 			
-			fw.write(j4.getText()+"/n"+j5.getText()+"\n"+j6.getText()+"/n"+j7.getText());
+			fw.write(j4.getText()+"\n"+j5.getText()+"\n"+j6.getText()+"\n"+j7.getText());
 			fw.close();
 		}
 		catch (Exception eh) {
 			eh.printStackTrace();
 		} 	
     }
+ 
 	public void actionPerformed(ActionEvent e) {
 		if(e.getSource() == submit) {
+			j.dispose();
 			this.createPage();
 			System.out.print("created");
 		}

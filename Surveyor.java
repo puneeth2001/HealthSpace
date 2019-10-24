@@ -1,6 +1,9 @@
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.BufferedWriter;
+import java.io.File;
 import java.io.FileWriter;
+import java.io.PrintWriter;
 
 import javax.swing.JButton;
 import javax.swing.JFileChooser;
@@ -16,7 +19,7 @@ public class Surveyor implements ActionListener {
         j = new JFrame("Hello Surveyor");
         JLabel l1=new JLabel("Name");  
         l1.setBounds(0,50, 120,50);  
-        username = new JTextField("Enter Name");
+        username = new JTextField();
         username.setBounds(120,50,120,50);
         JLabel l2=new JLabel("Email");  
         l2.setBounds(0,100, 120,50); 
@@ -73,10 +76,21 @@ public class Surveyor implements ActionListener {
     public void createPage() {
 		String userkanam = username.getText();
 		try {
-			FileWriter fw = new FileWriter("surveyor/"+userkanam+".txt");
-			
-			fw.write(phoneno.getText()+"\n"+email.getText());
-			fw.close();
+			File file = new File("surveyor/"+userkanam+".txt");
+			FileWriter fw = new FileWriter(file,true);
+			BufferedWriter out = new BufferedWriter(fw);
+			PrintWriter write = new PrintWriter(out);
+			if(file.exists()) {
+				System.out.print("Populating");
+				write.print(phoneno.getText()+"\n"+email.getText()+"\n");
+			}
+			else {
+				file.createNewFile();
+				System.out.print("Creating");
+				write.print(phoneno.getText()+"\n"+email.getText()+"\n");
+			}
+		
+			out.close();
 		}
 		catch (Exception eh) {
 			eh.printStackTrace();

@@ -1,21 +1,52 @@
-import java.awt.*;  
+import java.awt.*;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.ArrayList;
+import java.util.Scanner;
+
 import javax.swing.JFrame;  
   
 public class Tester extends Canvas{  
-      
-    public void paint(Graphics g) {  
-  
-        Toolkit t=Toolkit.getDefaultToolkit();  
-        Image i=t.getImage("First.jpg");  
-        g.drawImage(i, 120,100,this);  
-          
-    }  
         public static void main(String[] args) {  
-        Tester m=new Tester();  
-        JFrame f=new JFrame();  
-        f.add(m);  
-        f.setSize(400,400);  
-        f.setVisible(true);  
+        	String directory = "Patient";
+        	ArrayList<ArrayList<String> > aList =  
+                    new ArrayList<ArrayList<String> >(10); 
+        	
+        	
+        	File dir = new File(directory);
+        	File[] files = dir.listFiles();
+        	for(File f : files) {
+        		int j =0;
+        		try {
+        			ArrayList<String> ar = new ArrayList<String>(3); 
+    				Scanner scan = new Scanner(f);
+    				
+    				while(scan.hasNextLine()) {
+    					int i =0;
+    					
+    					String val = scan.nextLine();
+    					
+    					ar.add(i, val);
+    					System.out.println(ar.get(0));
+    					i++;
+    					if(i==2) {
+    						i=0;
+    						
+    					}
+    					aList.add(ar);
+    					
+    				}
+    				
+    				scan.close();
+    		
+    			
+    			} catch (FileNotFoundException e) {
+    				// TODO Auto-generated catch block
+    				e.printStackTrace();
+    			}
+        		
+        		
+        	}
     }  
   
 }  

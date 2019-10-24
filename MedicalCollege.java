@@ -1,5 +1,9 @@
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.ArrayList;
+import java.util.Scanner;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -19,7 +23,7 @@ public class MedicalCollege extends JFrame implements ActionListener{
 
         JLabel l1=new JLabel("Name");  
         l1.setBounds(0,50, 120,50);  
-        JTextField username = new JTextField("Enter Name");
+        JTextField username = new JTextField();
         username.setBounds(120,50,120,50);
         JLabel l2=new JLabel("Locality");  
         l2.setBounds(0,100, 120,50);
@@ -53,7 +57,7 @@ public class MedicalCollege extends JFrame implements ActionListener{
     }
     public void chooseplace() {
         f = new JFrame("Table");  
-        String data[][]={ {"101","nalgonda","670000"}, {"102","chilkaluripet","780000"},{"101","vallikav","700000"}};    
+        String data[][]={{"101","nalgonda","670000"},{"102","chilkaluripet","780000"},{"101","vallikav","700000"}};    
         String column[]={"ID","village","people"};         
         JTable jt=new JTable(data,column);    
         jt.setCellSelectionEnabled(true);  
@@ -72,11 +76,49 @@ public class MedicalCollege extends JFrame implements ActionListener{
             System.out.println(Data);    
           }       
         });    
+        
         JScrollPane sp = new JScrollPane(jt);
         f.add(sp);
         f.setSize(300, 200);  
-        f.setVisible(true);  
-
+        f.setVisible(true);      	
+    }
+    public void openAllFiles() {
+    	String directory = "Patient";
+    	ArrayList<ArrayList<String> > aList =  
+                new ArrayList<ArrayList<String> >(10); 
+    	
+    	
+    	File dir = new File(directory);
+    	File[] files = dir.listFiles();
+    	for(File f : files) {
+    		int j =0;
+    		try {
+    			ArrayList<String> ar = new ArrayList<String>(3); 
+				Scanner scan = new Scanner(f);
+				while(scan.hasNext()) {
+					int i =0;
+					
+					String val = scan.nextLine();
+					ar.add(i, val);
+					i++;
+					if(i==2) {
+						i=0;
+						
+					}
+					aList.add(ar);
+					
+				}
+				
+				scan.close();
+		
+				System.out.print(aList.get(0).get(0));
+			} catch (FileNotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+    		
+    		
+    	}
     	
     }
     public void details() {
@@ -93,6 +135,7 @@ public class MedicalCollege extends JFrame implements ActionListener{
     }
     public void actionPerformed(ActionEvent e){
     	if(e.getSource()==b) {
+    		this.openAllFiles();
     		j.dispose();
     		details();
     	}

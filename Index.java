@@ -9,7 +9,7 @@ public class Index extends JFrame implements ActionListener {
 
         JLabel l1=new JLabel("Username");  
         l1.setBounds(0,50, 120,50);  
-        JTextField username = new JTextField("enter username");
+        JTextField username = new JTextField();
         username.setBounds(120,50,120,50);
         JLabel l2=new JLabel("Password");  
         l2.setBounds(0,100, 120,50); 
