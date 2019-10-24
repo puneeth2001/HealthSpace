@@ -27,15 +27,17 @@ public class Tester extends Canvas{
     					String val = scan.nextLine();
     					
     					ar.add(i, val);
-    					System.out.println(ar.get(0));
+    					
     					i++;
-    					if(i==2) {
+    					aList.add(ar);
+    					if(i==0) {
     						i=0;
     						
     					}
-    					aList.add(ar);
+    					
     					
     				}
+    				
     				
     				scan.close();
     		
@@ -47,6 +49,7 @@ public class Tester extends Canvas{
         		
         		
         	}
+        	System.out.println(aList);
     }  
   
 }  
